@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ABS — Creative Digital Studio</title>
+<meta name="description" content="ABS creates websites, presentations, CVs, games and creative digital projects.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg:#070b18;
+  --card:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.13);
+  --text:#fff;
+  --muted:#aab3c5;
+  --primary:#7c5cff;
+  --secondary:#00d9ff;
+  --shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+.light{
+  --bg:#f5f7fb;
+  --card:rgba(255,255,255,.8);
+  --border:rgba(15,23,42,.12);
+  --text:#111827;
+  --muted:#5f6b7a;
+  --shadow:0 20px 50px rgba(15,23,42,.1);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+  transition:.3s;
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  width:500px;
+  height:500px;
+  top:-200px;
+  left:-150px;
+  background:var(--primary);
+  opacity:.15;
+  filter:blur(120px);
+  border-radius:50%;
+  pointer-events:none;
+  z-index:-1;
+}
+
+body:after{
+  content:"";
+  position:fixed;
+  width:450px;
+  height:450px;
+  right:-150px;
+  bottom:-150px;
+  background:var(--secondary);
+  opacity:.12;
+  filter:blur(120px);
+  border-radius:50%;
+  pointer-events:none;
+  z-index:-1;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.announcement{
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  color:white;
+  text-align:center;
+  padding:9px;
+  font-size:13px;
+  font-weight:700;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  backdrop-filter:blur(20px);
+  background:rgba(7,11,24,.75);
+  border-bottom:1px solid var(--border);
+}
+
+.light header{
+  background:rgba(255,255,255,.8);
+}
+
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  padding:17px 25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:26px;
+  font-weight:800;
+}
+
+.logo span{
+  color:var(--secondary);
+}
+
+nav{
+  display:flex;
+  gap:25px;
+}
+
+nav a{
+  color:var(--muted);
+  font-size:14px;
+  font-weight:600;
+  transition:.2s;
+}
+
+nav a:hover{
+  color:var(--text);
+}
+
+.toggle{
+  margin-left:20px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--text);
+  cursor:pointer;
+  font-size:18px;
+}
+
+.hero{
+  min-height:88vh;
+  max-width:1200px;
+  margin:auto;
+  padding:100px 25px;
+  display:flex;
+  align-items:center;
+}
+
+.hero-content{
+  max-width:850px;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 15px;
+  border:1px solid var(--border);
+  background:var(--card);
+  border-radius:50px;
+  color:var(--secondary);
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:25px;
+  backdrop-filter:blur(15px);
+}
+
+.hero h1{
+  font-size:clamp(48px,8vw,90px);
+  line-height:.98;
+  letter-spacing:-5px;
+  margin-bottom:25px;
+}
+
+.gradient{
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  max-width:680px;
+  color:var(--muted);
+  font-size:19px;
+  margin-bottom:35px;
+}
+
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 22px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--text);
+  font-weight:700;
+  cursor:pointer;
+  transition:.25s;
+  backdrop-filter:blur(15px);
+}
+
+.btn:hover{
+  transform:translateY(-4px);
+}
+
+.btn-primary{
+  border:none;
+  color:white;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  box-shadow:0 10px 35px rgba(124,92,255,.3);
+}
+
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:100px 25px;
+}
+
+.section-head{
+  margin-bottom:45px;
+}
+
+.section-head span{
+  color:var(--secondary);
+  font-size:13px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:2px;
+}
+
+.section-head h2{
+  font-size:clamp(32px,5vw,55px);
+  line-height:1.05;
+  margin-top:10px;
+}
+
+.section-head p{
+  color:var(--muted);
+  max-width:650px;
+  margin-top:15px;
+}
+
+.bento{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.card{
+  border:1px solid var(--border);
+  background:var(--card);
+  border-radius:22px;
+  padding:28px;
+  backdrop-filter:blur(20px);
+  box-shadow:var(--shadow);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(124,92,255,.5);
+}
+
+.card.large{
+  grid-column:span 2;
+  grid-row:span 2;
+}
+
+.card h3{
+  font-size:21px;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:var(--muted);
+}
+
+.icon{
+  font-size:35px;
+  margin-bottom:20px;
+}
+
+.service-grid,
+.pricing-grid,
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.price{
+  font-size:38px;
+  font-weight:800;
+  margin:20px 0;
+}
+
+.price small{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.list{
+  list-style:none;
+  color:var(--muted);
+  margin:20px 0;
+}
+
+.list li{
+  margin:10px 0;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.gallery-item{
+  min-height:220px;
+  border-radius:20px;
+  background:linear-gradient(135deg,rgba(124,92,255,.8),rgba(0,217,255,.3)),#12182a;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+  font-weight:800;
+  transition:.3s;
+}
+
+.gallery-item:hover{
+  transform:scale(1.03);
+}
+
+.stars{
+  color:#fbbf24;
+  letter-spacing:2px;
+}
+
+.process{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.number{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+.faq{
+  max-width:850px;
+  margin:auto;
+}
+
+details{
+  border:1px solid var(--border);
+  background:var(--card);
+  padding:20px;
+  border-radius:15px;
+  margin-bottom:12px;
+}
+
+summary{
+  cursor:pointer;
+  font-weight:700;
+}
+
+details p{
+  color:var(--muted);
+  padding-top:15px;
+}
+
+.cta{
+  text-align:center;
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:70px 25px;
+  background:linear-gradient(135deg,rgba(124,92,255,.2),rgba(0,217,255,.12));
+}
+
+.cta h2{
+  font-size:clamp(35px,5vw,60px);
+  margin-bottom:15px;
+}
+
+.cta p{
+  color:var(--muted);
+  margin-bottom:25px;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.contact-item{
+  margin-bottom:20px;
+}
+
+.contact-item span{
+  color:var(--secondary);
+  font-weight:800;
+}
+
+form input,
+form textarea{
+  width:100%;
+  padding:15px;
+  margin-bottom:14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--text);
+  outline:none;
+  font:inherit;
+}
+
+form textarea{
+  min-height:150px;
+  resize:vertical;
+}
+
+footer{
+  border-top:1px solid var(--border);
+  padding:45px 25px;
+  text-align:center;
+  color:var(--muted);
+}
+
+.socials{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:20px 0;
+  flex-wrap:wrap;
+}
+
+.social{
+  padding:10px 15px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--card);
+}
+
+.discord{
+  background:#5865F2;
+  color:white;
+  border:none;
+}
+
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:1500;
+  background:#25d366;
+  color:white;
+  padding:14px 20px;
+  border-radius:50px;
+  font-weight:800;
+  box-shadow:0 10px 30px rgba(37,211,102,.3);
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(25px);
+  transition:.7s;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:850px){
+
+  nav{
+    display:none;
+  }
+
+  .bento,
+  .service-grid,
+  .pricing-grid,
+  .review-grid,
+  .gallery,
+  .process,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .card.large{
+    grid-column:span 1;
+    grid-row:span 1;
+  }
+
+  .hero{
+    min-height:75vh;
+    padding-top:70px;
+  }
+
+  .hero h1{
+    letter-spacing:-3px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+🚀 New projects are now open — Contact ABS today
+</div>
+
+<header>
+
+<div class="navbar">
+
+<a href="#home" class="logo">
+ABS<span>.</span>
+</a>
+
+<nav>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#work">Work</a>
+<a href="#pricing">Pricing</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<button class="toggle" onclick="toggleTheme()" id="themeButton">
+☀️
+</button>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="hero" id="home">
+
+<div class="hero-content reveal">
+
+<div class="badge">
+✦ CREATIVE DIGITAL STUDIO
+</div>
+
+<h1>
+We build
+<span class="gradient">digital ideas</span>
+that stand out.
+</h1>
+
+<p>
+Websites, presentations, CVs, games and creative digital projects —
+designed to look modern and professional.
+</p>
+
+<div class="buttons">
+
+<a class="btn btn-primary" href="#services">
+Explore Services →
+</a>
+
+<a class="btn" href="#contact">
+Let's Talk
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about" class="reveal">
+
+<div class="section-head">
+<span>01 — About</span>
+<h2>Small team.<br>Big ideas.</h2>
+
+<p>
+ABS helps people turn their ideas into polished digital projects.
+We focus on clean design, useful features and a great experience.
+</p>
+</div>
+
+<div class="bento">
+
+<div class="card large">
+<div class="icon">⚡</div>
+<h3>Creative & Digital</h3>
+<p>
+From presentations to websites and games,
+we create digital experiences tailored to each project.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🎯</div>
+<h3>Our Goal</h3>
+<p>Make your idea look professional and easy to use.</p>
+</div>
+
+<div class="card">
+<div class="icon">💡</div>
+<h3>Our Approach</h3>
+<p>Simple ideas, clean design and thoughtful details.</p>
+</div>
+
+<div class="card">
+<div class="icon">🚀</div>
+<h3>Fast Projects</h3>
+<p>We aim to keep projects clear and organized.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="services" class="reveal">
+
+<div class="section-head">
+<span>02 — Services</span>
+<h2>What we create.</h2>
+<p>Choose a service or contact us about a custom project.</p>
+</div>
+
+<div class="service-grid">
+
+<div class="card">
+<div class="icon">🌐</div>
+<h3>Websites</h3>
+<p>Modern responsive websites for projects and businesses.</p>
+</div>
+
+<div class="card">
+<div class="icon">🎨</div>
+<h3>Presentations</h3>
+<p>Creative presentations with professional layouts.</p>
+</div>
+
+<div class="card">
+<div class="icon">📄</div>
+<h3>CV Design</h3>
+<p>Clean CVs designed to present information clearly.</p>
+</div>
+
+<div class="card">
+<div class="icon">🎮</div>
+<h3>Games</h3>
+<p>Small custom game projects and experiments.</p>
+</div>
+
+<div class="card">
+<div class="icon">🖼️</div>
+<h3>Graphic Design</h3>
+<p>Visual designs for digital projects and brands.</p>
+</div>
+
+<div class="card">
+<div class="icon">✨</div>
+<h3>Custom Projects</h3>
+<p>Have another idea? Contact us and let's discuss it.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="reveal">
+
+<div class="section-head">
+<span>03 — Process</span>
+<h2>How it works.</h2>
+</div>
+
+<div class="process">
+
+<div class="card">
+<div class="number">1</div>
+<h3>Tell us</h3>
+<p>Explain what you want to create.</p>
+</div>
+
+<div class="card">
+<div class="number">2</div>
+<h3>Plan</h3>
+<p>We organize the project.</p>
+</div>
+
+<div class="card">
+<div class="number">3</div>
+<h3>Create</h3>
+<p>We build the design and project.</p>
+</div>
+
+<div class="card">
+<div class="number">4</div>
+<h3>Deliver</h3>
+<p>You receive the finished project.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="work" class="reveal">
+
+<div class="section-head">
+<span>04 — Portfolio</span>
+<h2>Selected work.</h2>
+</div>
+
+<div class="gallery">
+
+<div class="gallery-item">Website</div>
+<div class="gallery-item">Presentation</div>
+<div class="gallery-item">Game</div>
+<div class="gallery-item">CV Design</div>
+<div class="gallery-item">Brand Design</div>
+<div class="gallery-item">Custom Project</div>
+
+</div>
+
+</section>
+
+<section id="pricing" class="reveal">
+
+<div class="section-head">
+<span>05 — Pricing</span>
+<h2>Simple packages.</h2>
+
+<p>
+Prices shown are starting examples.
+Contact us for a custom quote.
+</p>
+</div>
+
+<div class="pricing-grid">
+
+<div class="card">
+<h3>Starter</h3>
+<div class="price">$10</div>
+
+<ul class="list">
+<li>✓ Basic project</li>
+<li>✓ Simple design</li>
+<li>✓ Basic support</li>
+</ul>
+
+<a class="btn" href="#contact">Discuss</a>
+</div>
+
+<div class="card">
+<h3>Professional</h3>
+<div class="price">$25</div>
+
+<ul class="list">
+<li>✓ Professional design</li>
+<li>✓ More features</li>
+<li>✓ Project support</li>
+</ul>
+
+<a class="btn btn-primary" href="#contact">Discuss</a>
+</div>
+
+<div class="card">
+<h3>Custom</h3>
+<div class="price">Custom</div>
+
+<ul class="list">
+<li>✓ Custom requirements</li>
+<li>✓ Advanced design</li>
+<li>✓ Custom features</li>
+</ul>
+
+<a class="btn" href="#contact">Contact Us</a>
+</div>
+
+</div>
+
+</section>
+
+<section id="reviews" class="reveal">
+
+<div class="section-head">
+<span>06 — Reviews</span>
+<h2>What customers say.</h2>
+</div>
+
+<div class="review-grid">
+
+<div class="card">
+<div class="stars">★★★★★</div>
+<p>"Professional and creative work."</p>
+<strong>Customer 1</strong>
+</div>
+
+<div class="card">
+<div class="stars">★★★★★</div>
+<p>"The project looked clean and modern."</p>
+<strong>Customer 2</strong>
+</div>
+
+<div class="card">
+<div class="stars">★★★★★</div>
+<p>"Easy to communicate with and helpful."</p>
+<strong>Customer 3</strong>
+</div>
+
+</div>
+
+</section>
+
+<section class="reveal">
+
+<div class="cta">
+
+<h2>Have an idea?</h2>
+
+<p>
+Let's turn it into something awesome.
+</p>
+
+<a class="btn btn-primary" href="#contact">
+Start a Project →
+</a>
+
+</div>
+
+</section>
+
+<section class="reveal">
+
+<div class="section-head">
+<span>07 — FAQ</span>
+<h2>Questions?</h2>
+</div>
+
+<div class="faq">
+
+<details>
+<summary>What services do you offer?</summary>
+<p>
+We offer websites, presentations, CVs, games,
+graphic design and custom digital projects.
+</p>
+</details>
+
+<details>
+<summary>Can I request a custom project?</summary>
+<p>
+Yes. Contact us and explain what you want.
+</p>
+</details>
+
+<details>
+<summary>How can I contact ABS?</summary>
+<p>
+You can contact us through Discord, WhatsApp,
+email or the contact form.
+</p>
+</details>
+
+</div>
+
+</section>
+
+<section id="contact" class="reveal">
+
+<div class="section-head">
+<span>08 — Contact</span>
+<h2>Let's talk.</h2>
+</div>
+
+<div class="contact-grid">
+
+<div class="card">
+
+<div class="contact-item">
+<span>💬 Discord</span>
+<p>abs_org</p>
+</div>
+
+<div class="contact-item">
+<span>📱 WhatsApp</span>
+<p>+92 XXX XXXXXXX</p>
+</div>
+
+<div class="contact-item">
+<span>📧 Email</span>
+<p>your@email.com</p>
+</div>
+
+<div class="contact-item">
+<span>📍 Address</span>
+<p>Your Business Address</p>
+</div>
+
+<div class="contact-item">
+<span>🕒 Business Hours</span>
+<p>Monday — Saturday<br>10 AM — 8 PM</p>
+</div>
+
+<div class="buttons">
+
+<a class="btn discord" href="https://discord.com/" target="_blank">
+💬 Discord — abs_org
+</a>
+
+<a class="btn" href="https://wa.me/923000000000" target="_blank">
+WhatsApp
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<form onsubmit="sendMessage(event)">
+
+<input id="name" type="text" placeholder="Your name" required>
+
+<input id="email" type="email" placeholder="Your email" required>
+
+<input id="subject" type="text" placeholder="Subject">
+
+<textarea id="message" placeholder="Tell us about your project..." required></textarea>
+
+<button class="btn btn-primary" type="submit">
+Send Message →
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<a class="whatsapp"
+href="https://wa.me/923000000000"
+target="_blank">
+💬 WhatsApp
+</a>
+
+<footer>
+
+<div class="logo">
+ABS<span>.</span>
+</div>
+
+<div class="socials">
+
+<a class="social discord"
+href="https://discord.com/"
+target="_blank">
+💬 Discord: abs_org
+</a>
+
+<a class="social" href="#">Instagram</a>
+<a class="social" href="#">YouTube</a>
+<a class="social" href="#">TikTok</a>
+
+</div>
+
+<p>© 2026 ABS. All rights reserved.</p>
+
+<p>
+Privacy Policy · Terms · Cookie Policy · Refund Policy
+</p>
+
+</footer>
+
+<script>
+
+function toggleTheme(){
+
+  document.body.classList.toggle("light");
+
+  const button=document.getElementById("themeButton");
+
+  if(document.body.classList.contains("light")){
+
+    button.textContent="🌙";
+    localStorage.setItem("theme","light");
+
+  }else{
+
+    button.textContent="☀️";
+    localStorage.setItem("theme","dark");
+
+  }
+}
+
+if(localStorage.getItem("theme")==="light"){
+
+  document.body.classList.add("light");
+  document.getElementById("themeButton").textContent="🌙";
+
+}
+
+function sendMessage(event){
+
+  event.preventDefault();
+
+  const name=document.getElementById("name").value;
+
+  alert(
+    "Thanks "+name+
+    "! Your message form is ready."
+  );
+
+}
+
+const revealElements=document.querySelectorAll(".reveal");
+
+const observer=new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},
+
+{threshold:.12}
+
+);
+
+revealElements.forEach(element=>{
+observer.observe(element);
+});
+
+</script>
+
+</body>
+</html>
